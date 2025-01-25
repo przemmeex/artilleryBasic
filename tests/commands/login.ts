@@ -1,9 +1,7 @@
 import { expect } from '@playwright/test';
 
 export async function testLogin(page: any) {
-    await page.goto('https://www.wp.pl/');
-    await page.getByRole('button', { name: 'AKCEPTUJĘ I PRZECHODZĘ DO' }).click();
-    await page.locator('a').filter({ hasText: 'Menu' }).click();
-    await page.getByRole('link', { name: 'Sport', exact: true }).click();
-    await expect(page.getByRole('link', { name: 'SportoweFakty' })).toBeVisible();
+    await page.goto('https://en.wikipedia.org/wiki/Dog');
+    await page.getByRole('link', { name: 'dingoes', exact: true }).click();
+    await expect(page.getByRole('heading', { name: 'Dingo', exact: true }).locator('span')).toBeVisible();
 }

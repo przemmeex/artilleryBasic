@@ -1,5 +1,5 @@
 config:
-  target: https://www.wp.pl
+  target: https://en.wikipedia.org/wiki/Dog
   # Load the Playwright engine:
   engines:
     playwright:
@@ -9,6 +9,25 @@ config:
   # Path to JavaScript file that defines Playwright test functions
   # TypeScript is also supported
   processor: './tests/artillery/load.ts'
+  phases:
+    #inject one user every 3s
+    - name: constantArrival
+      duration: 3
+      arrivalRate: 1
+    #pause for 2s
+    - name: pause
+      pause: 2
+    
+    # ramp up to 5 users in 5s
+    - name: ramp-up
+      duration: 10
+      arrivalRate: 1
+      rampTo: 5
+    #fixed arrival
+    # - name: fixedArrival
+    #   duration: 10
+    #   arrivalCount: 5
+    
 scenarios:
   - engine: playwright
     testFunction: artilleryScript
