@@ -1,0 +1,14 @@
+config:
+  target: https://www.wp.pl
+  # Load the Playwright engine:
+  engines:
+    playwright:
+      launchOptions:
+        headless: true
+
+  # Path to JavaScript file that defines Playwright test functions
+  # TypeScript is also supported
+  processor: './tests/artillery/load.ts'
+scenarios:
+  - engine: playwright
+    testFunction: artilleryScript
