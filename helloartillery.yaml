@@ -1,5 +1,5 @@
 config:
-  target: https://en.wikipedia.org/wiki/Dog
+  target: https://en.wikipedia.org/wiki
   # Load the Playwright engine:
   engines:
     playwright:
@@ -20,9 +20,9 @@ config:
     
     # ramp up to 5 users in 5s
     - name: ramp-up
-      duration: 10
+      duration: 5
       arrivalRate: 1
-      rampTo: 5
+      rampTo: 4
     #fixed arrival
     # - name: fixedArrival
     #   duration: 10

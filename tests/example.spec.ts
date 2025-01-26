@@ -1,7 +1,11 @@
-import { expect, test } from '@playwright/test';
+import { expect, Page, test } from '@playwright/test';
 
-import { testLogin } from './commands/login';
+import { testCatPage, testDogPage } from './commands/login';
 
-test('test', async ({ page }) => {
-await testLogin(page);
+test('test Dog Page', async ({ page }) => {
+await testDogPage(page);
+});
+
+test('test Cat Page', async ({ page }) => {
+    await testCatPage(page);
 });

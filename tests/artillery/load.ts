@@ -1,5 +1,6 @@
-import { testLogin } from '../commands/login';
+import { testDogPage, testCatPage } from '../commands/login';
 
 export async function artilleryScript(page: any) {
-    await testLogin(page);
+    await testDogPage(page);
+    await testCatPage(page);
 }
