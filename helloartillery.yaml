@@ -3,6 +3,7 @@ config:
   # Load the Playwright engine:
   engines:
     playwright:
+      extendedMetrics: true
       launchOptions:
         headless: true
 
@@ -21,15 +22,15 @@ config:
       arrivalCount: 6
     #pause for 102s
     - name: pause
-      pause: 10
+      pause: 5
     
     # ramp up to 4 users in 5s
     # - name: ramp-up
     #   duration: 5
     #   arrivalRate: 1
     #   rampTo: 4
+  
 
-    
 scenarios:
   - engine: playwright
     testFunction: artilleryScript

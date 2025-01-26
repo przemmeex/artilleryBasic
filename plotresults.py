@@ -9,12 +9,14 @@ with open('artout02.json', 'r') as file:
 
 # Extract session lengths
 session_length = data['aggregate']['summaries']['vusers.session_length']
-
 summ_lcp = data['aggregate']['summaries']['browser.page.LCP.https://en.wikipedia.org/wiki/Dog']
 
-for i in session_length.keys():
-    print(f"name: {i}, value: {session_length[i]}")
+intermediates = data['intermediate']
 
+j =0 
+for i in intermediates:
+    print(f"for {j} counter time is:  {i['lastMetricAt']-i['firstMetricAt']}")
+    j+=1
 
 
 # # Plot session lengths
@@ -52,20 +54,24 @@ ax1.set_xlabel('Sessions')
 ax1.set_ylabel('LCP Values')
 ax1.set_title('LCP Values per Session')
 ax1.grid(True)
+ax1.set_facecolor('#F5F5F5')
+
+ax2.set_xlabel('Sessions')
+ax2.set_ylabel('Session Lengths')
+ax2.set_title('vusers.session_length')
+ax2.grid(True)
+ax2.set_facecolor('#F5F5F5')
+
 # Filter LCP values for 'min' and 'max' keys
 filtered_lcp_values = {key: summ_lcp[key] for key in summ_lcp if key in ['min', 'max', 'mean', 'median', 'p75', 'p95']}
 filtered_lcp_keys = list(filtered_lcp_values.keys())
 filtered_lcp_values = list(filtered_lcp_values.values())
 
 # Plot filtered LCP values
-ax1.bar(filtered_lcp_keys, filtered_lcp_values)
+ax1.bar(filtered_lcp_keys, filtered_lcp_values, color='#237569')
 
-# Plot session lengths
 ax2.bar(list(session_length.keys()), session_values)
-ax2.set_xlabel('Sessions')
-ax2.set_ylabel('Session Lengths')
-ax2.set_title('vusers.session_length')
-ax2.grid(True)
+
 
 plt.tight_layout()
 plt.show()
