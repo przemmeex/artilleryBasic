@@ -50,13 +50,11 @@ fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10))
 
 # Plot LCP values
 #ax1.bar(list(summ_lcp.keys()), lcp_values)
-ax1.set_xlabel('Sessions')
 ax1.set_ylabel('LCP Values')
 ax1.set_title('LCP Values per Session')
 ax1.grid(True)
 ax1.set_facecolor('#F5F5F5')
 
-ax2.set_xlabel('Sessions')
 ax2.set_ylabel('Session Lengths')
 ax2.set_title('vusers.session_length')
 ax2.grid(True)
