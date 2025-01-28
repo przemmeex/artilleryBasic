@@ -17,18 +17,24 @@ config:
     #   arrivalRate: 1
 
     #fixed arrival
-    - name: fixedArrival
-      duration: 5
-      arrivalCount: 6
+    # - name: fixedArrival
+    #   duration: 1
+    #   arrivalCount: 6
     #pause for 102s
-    - name: pause
-      pause: 5
+    # - name: pause
+    #   pause: 50
     
     # ramp up to 4 users in 5s
     # - name: ramp-up
     #   duration: 5
     #   arrivalRate: 1
     #   rampTo: 4
+
+    #every second 6 users arrives but no more than 6 users can exist => 6 users should operate at all the time
+    - name: constant-6-users
+      duration: '1m'
+      arrivalRate: 6
+      maxVusers: 6
   
 
 scenarios:

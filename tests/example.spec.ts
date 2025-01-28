@@ -3,9 +3,9 @@ import { expect, Page, test } from '@playwright/test';
 import { testCatPage, testDogPage } from './commands/login';
 
 test('test Dog Page', async ({ page }) => {
-await testDogPage(page);
+await testDogPage(page, test.step);
 });
 
 test('test Cat Page', async ({ page }) => {
-    await testCatPage(page);
+    await testCatPage(page, test.step);
 });
